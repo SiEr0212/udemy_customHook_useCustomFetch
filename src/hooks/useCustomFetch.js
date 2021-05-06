@@ -18,7 +18,9 @@ export default function useCustomFetch(url) {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      customFetch(url);
+      if (url) {
+        customFetch(url);
+      }
     }, 3000);
   }, [url]);
 

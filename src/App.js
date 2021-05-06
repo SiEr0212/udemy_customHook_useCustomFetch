@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import useCustomFetch from "./hooks/useCustomFetch";
 
 function App() {
-const getFolowers = (e) => {
-if(e.key === 'Enter'){
-  alert('enter pressed')
-}
-};
+  const [url, seturl] = useState(null);
+  const [data, loadig, error] = useCustomFetch(url);
+  const getFolowers = (e) => {
+    if (e.key === "Enter") {
+      seturl("https://api.github.com/users/" + e.target.value);
+    }
+  };
 
   return (
     <div className="App">
