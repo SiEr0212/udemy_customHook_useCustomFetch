@@ -21,4 +21,6 @@ export default function useCustomFetch(url) {
       customFetch(url);
     }, 3000);
   }, [url]);
+
+  return [data, loading, error];
 }
